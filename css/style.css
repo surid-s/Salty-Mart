@@ -1,56 +1,39 @@
 body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
-}
-
-.search-field {
-  border: none;
-  border-radius: 50px;
-  padding: 3px;
-  outline: none;
-  width: auto;
-}
-
-.search-field:hover {
-  outline: none;
-  border: none;
-}
-
-.search-box {
-  border: 1px solid rgb(3, 118, 211);
-  width: 265px;
-  border-radius: 5px;
-  margin: auto;
-  margin-top: 50px;
-  border-right: none;
-}
-
-.search-button {
-  padding: 10px 50px;
-  border-radius: 25px;
-  /* margin-left: 30px; */
+  background-color: rgb(91, 72, 109) !important;
 }
 
 #all-products {
   display: grid;
+  grid-gap: 24px;
   grid-template-columns: repeat(3, 1fr);
   /* border: 1px solid black; */
   text-align: center;
-  width: 100%;
-  margin: auto;
+  /* width: 100%;
+  margin: auto; */
   align-items: center;
   justify-content: center;
 }
 
+
 .single-product {
+  background-color: rgb(15, 54, 80);
+  height: 622px;
+  width: 307px;
   padding: 10px;
   transition: 0.6s;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: white;
 }
 
 .single-product:hover {
-  box-shadow: 4px 4px 7px rgb(52, 85, 46);
+  box-shadow: 4px 4px 7px rgb(159, 218, 23);
   border-radius: 10px;
-  border: 1px solid rgb(47, 13, 197);
+  border: 2px solid rgb(19, 204, 250);
+  background-color: rgba(39, 16, 61, 0.719);
+
 }
 
 .product-image {
@@ -59,7 +42,7 @@ body {
 }
 
 .cart {
-  width: 350px;
+  width: 345px;
   /* border: 1px solid green; */
   padding: 10px;
   box-shadow: 10px 10px 20px gray;
@@ -98,4 +81,42 @@ body {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+
+
+/* some extra parts */
+
+
+.total-rating {
+  font-size: 15px;
+  font-weight: bold;
+  color: rgb(190, 136, 104);
+
+}
+
+.avg-rating {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(27, 197, 240);
+}
+
+.btn-success {
+  background-color: rgb(8, 64, 117) !important;
+
+}
+
+.btn-success:hover {
+  background-color: rgb(119, 80, 226) !important;
+}
+
+.btn-primary {
+  background-color: rgb(184, 99, 187) !important;
+}
+
+
+.details-img {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
 }
