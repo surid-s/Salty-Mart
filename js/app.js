@@ -9,13 +9,14 @@ loadProducts();
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
+  console.log(products)
   for (const product of allProducts) {
     const image = product.images;
     const div = document.createElement("div");
     div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
-      <div>
-    <img class="product-image" src=${image}></img>
+    div.innerHTML = `
+    <div class="single-product"><div>
+    <img class="product-image" src=${product.image}>
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
