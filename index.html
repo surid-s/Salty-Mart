@@ -5,58 +5,90 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sorisha Mart</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Salty Mart</title>
+  <link rel="icon" href="fav-icon/icons8-reddit-48.png" type="image/gif" sizes="16x16">
+  <img src="https://img.icons8.com/doodle/48/000000/reddit--v4.png" />
+  <!----------- 
+        CSS stylesheet link 
+    ------------>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- Latest compiled and minified CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" /> -->
 
-  <!-- google Montserrat   font  -->
+  <!-- google Montserrat  font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 
-<body class="container-fluid">
+<body>
+  <header class="header">
+    <h1 class="heading-text mt-5 text-white">Enjoy your shoping <span class="middle-text">with Daily Deals</span> </h1>
+    <!------------
+                Search Box
+            -------------->
+    <!-- <div class="search-field"> -->
+    <div class="row d-flex align-items-center">
 
-  <header></header>
-  <main class="main">
-
-
-    <!-- search section -->
-
-    <div class="search-box w-50 mx-auto my-5 d-flex">
-      <input id="input-field" class="form-control p-2" type="text" placeholder="Search Your Product" />
-      <button class="btn btn-primary" id="search-btn" onclick="loadProducts()">
-        Search
-      </button>
-    </div>
-
-
-    <!-- single product details -->
-    <div id="singleProductDetails" class="w-50 mx-auto">
-
-    </div>
-
-
-
-
-    <!-- product section -->
-    <div class="row">
-      <div class="col-md-9 col-lg-9 col-sm-7 g-4">
-        <div id="all-products" class="">
-
+      <div class="col-md-4 d-flex justify-content-center">
+        <a href="index.html"><img class="logo img-fluid" src="images/fav-icon.png" alt="">
+        </a>
+      </div>
+      <div class="search-box col-md-5 ">
+        <input id="input-field" class="search-field" type="text" />
+        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
+          autocomplete="off" id="search-btn" onclick="loadProducts()">
+          Search
+        </button>
+      </div>
+      <div class="col-md-3 d-flex fs-4">
+        <div class="text-center me-5">
+          <i class="icons fa fa-heart-o" aria-hidden="true"></i>
+          <p class="text-dark">Your wishlist</p>
+        </div>
+        <div class="text-white text-center me-3">
+          <i class="icons fa fa-shopping-cart" aria-hidden="true"></i>
+          <p class="text-dark">Your card</p>
         </div>
       </div>
+    </div>
+  </header>
+  <main class="main mt-4">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="single-product">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!------------
+        Display Single product details    
+    -------------->
 
 
-
-      <!-- cart section -->
-
-
+    <div class="row g-3">
+      <div class="col-md-9 col-lg-9 col-sm-7">
+        <div id="all-products" class="">
+        </div>
+      </div>
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
-        <div class="cart text-white" id="my-cart">
-          <table class="table text-white">
+        <div class="cart" id="my-cart">
+          <table class="table">
             <thead>
               <h1>My-Cart</h1>
               <tr>
@@ -69,7 +101,7 @@
             <tbody>
               <tr>
                 <th>Total Added-Products:</th>
-                <td> <span id="total-Products">0</span></td>
+                <td><span id="total-Products">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
@@ -99,7 +131,24 @@
             </tbody>
           </table>
           <div class="parces text-center">
-            <button class="btn btn-primary text-center">Buy Now</button>
+            <button class="btn btn-primary text-center buy-btn" type="button" data-bs-toggle="modal"
+              data-bs-target="#exampleModal1">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h1 class="text-center text-success fs-2">This is a demo. Try again after I complete this project. Thank
+              you. YAY!!!</h1>
           </div>
         </div>
       </div>
@@ -107,13 +156,12 @@
   </main>
   <footer></footer>
 
-
-  <!-- bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+  <!-- javascript  file  -->
+  <script src="./js/app.js"></script>
+  <script src="https://kit.fontawesome.com/c0779e35be.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
-  <!-- add javascript  file  -->
-  <script src="js/app.js"></script>
 </body>
 
 </html>
